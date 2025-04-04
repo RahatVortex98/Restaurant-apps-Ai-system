@@ -92,7 +92,9 @@ python manage.py runserver
 - Manage data via `/admin/`
 
 ## 📷 Screenshots
-Add UI screenshots here if needed (login, order page, admin panel, etc).
+![db](https://github.com/user-attachments/assets/d1ca20eb-7c4a-4e7c-b4a1-51e035c2a0ba)
+![email gone](https://github.com/user-attachments/assets/01bb5419-0b4e-41d8-9f1e-0836abfca23b)
+
 
 ## 📦 Deployment (Heroku Example)
 - Set up `Procfile`, `requirements.txt`, and `runtime.txt`
