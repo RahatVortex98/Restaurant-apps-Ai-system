@@ -1,0 +1,65 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block content %}
+
+<div class="wrapper">
+    <div class='hero'>
+        <div class="vertical-align-hero">
+            <h1 class='welcome pt-3 mt-3 text-center'>Welcome To My Restaurant.</h1>
+        </div>
+    </div>
+    
+    <h1 class="text-center">
+        <a href="#" style="text-decoration: none; color: inherit;"> Menu </a>
+    </h1>
+    
+    <div class="index-content mt-5 container mx-auto">
+        <div class="row mx-2"> <!-- One row wrapper for all items -->
+            {% for meal in meals %}
+                <div class="col-md-4 mb-4">  <!-- 3 meals per row -->
+                    <div class="meal-content border mx-2 pb-2">
+                        <div>
+                            <a href="#">
+                                <img src="{{ meal.image.url }}" alt="{{ meal.name }}" class="meal-image img-fluid" />
+                            </a>
+                        </div>
+                        <div class="column-text-content px-3"></div>
+                        <div class="pt-3 meal-name">
+                             {{ meal.name }}
+                        </div>
+                        <div class="pt-2 meal-price"> 
+                             ${{ meal.price }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-2 meal-stock">
+                                    <span class="stock"><strong>In Stock:</strong> {{ meal.stock }}</span>
+                                </div>
+                            </div>
+                            {% if user.is_authenticated %}
+                            <div class="col order-button-align">
+                                <div class="order-button">
+                                    <a href="{% url 'order' pk=meal.id %}" class="btn btn-dark">Order</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="col order-button-align">
+                                <div class="order-button">
+                                    <a href="#" onclick="alert('You need to log in first!')" class="btn btn-dark">Order</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                        
+                        </div>
+                    </div>
+                </div>
+
+                {% if forloop.counter|divisibleby:3 %}  
+                    </div><div class="row mx-2">  <!-- Close & start a new row after every 3 items -->
+                {% endif %}
+            {% endfor %}
+        </div> <!-- Final closing of row -->
+    </div>
+</div>
+
+{% endblock %}
