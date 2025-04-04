@@ -29,7 +29,6 @@ RestaurantApp/
 ├── static/            # Static assets (CSS, JS, images)
 ├── media/             # Uploaded media
 ├── manage.py          # Django project manager
-├── db.sqlite3         # Default DB (used in dev)
 └── requirements.txt   # Python dependencies
 ```
 
